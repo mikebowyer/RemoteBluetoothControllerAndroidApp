@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\mbowyer\AndroidStudioProjects\ArduinoBluetoothController\app\build\intermediates\exploded-aar\com.android.support\transition\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="15b049fedbd8e3926bf99d9e45dfc9b2a1043bb9">
+        <dex dex="C:\Users\mbowyer\AndroidStudioProjects\ArduinoBluetoothController\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-transition-25.1.1_77ec94106f679e220789a44627aa9891b92e0078\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\mbowyer\AndroidStudioProjects\ArduinoBluetoothController\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0fb891e8f0cfba0513043a7bb357513d229ca2cd">
+        <dex dex="C:\Users\mbowyer\AndroidStudioProjects\ArduinoBluetoothController\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.1.1_309fe1f185c94ad13b61ba2ee2d3a93ac058fdce\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\mbowyer\AndroidStudioProjects\ArduinoBluetoothController\app\build\intermediates\exploded-aar\com.android.support\design\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="cd7951e04cfb9a8bf008d544a478d9a8d8192d38">
+        <dex dex="C:\Users\mbowyer\AndroidStudioProjects\ArduinoBluetoothController\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-25.1.1_a11a4ac3490280e4103e778ee04e9d75bcb59566\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\mbowyer\AndroidStudioProjects\ArduinoBluetoothController\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7bde4c34162092e0a77e7f12dc85ed77c484cf5c">
+        <dex dex="C:\Users\mbowyer\AndroidStudioProjects\ArduinoBluetoothController\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-25.1.1_e3acfe89fe3f3f9abcbe2588a4f2658bd602990d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\mbowyer\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.1.1\support-annotations-25.1.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b59b6ee8d6ecc03e672d253800430343493a6ed8">
+        <dex dex="C:\Users\mbowyer\AndroidStudioProjects\ArduinoBluetoothController\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.1.1_8b21f42059b3f1ae6536f415c8bdd820853e62ea\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\mbowyer\AndroidStudioProjects\ArduinoBluetoothController\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="49cd239f1001bad1175a8f198fbd7e7acf6e731a">
+        <dex dex="C:\Users\mbowyer\AndroidStudioProjects\ArduinoBluetoothController\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_2843d909a2461bbccc58c5df1f3e03e1feb3dc2d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\mbowyer\AndroidStudioProjects\ArduinoBluetoothController\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="02741d05d4b697fba5e279e9881aaa1da0ca7c7f">
+        <dex dex="C:\Users\mbowyer\AndroidStudioProjects\ArduinoBluetoothController\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-25.1.1_4c2e6e328c631c9cecc4db48c1bae4a00b6ec12b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\mbowyer\AndroidStudioProjects\ArduinoBluetoothController\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ecb496cc08dd52551fc5ec6db3bc0632e95a89bb">
+        <dex dex="C:\Users\mbowyer\AndroidStudioProjects\ArduinoBluetoothController\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-25.1.1_22e15a2e87e76e47835e610f0d7ba285247d7c3e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\mbowyer\AndroidStudioProjects\ArduinoBluetoothController\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c9649557905bf7a80fca9e0d54cbcb7662627860">
+        <dex dex="C:\Users\mbowyer\AndroidStudioProjects\ArduinoBluetoothController\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-25.1.1_ae93e1f3c96073c9b231564e407c35c72b49b08e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\mbowyer\AndroidStudioProjects\ArduinoBluetoothController\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3e04ac8ca644ea7baddf6fdcf72e15c79e9df94a">
+        <dex dex="C:\Users\mbowyer\AndroidStudioProjects\ArduinoBluetoothController\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-25.1.1_401903c5b87a28f89e3d96ee8118d4935fcf5d4f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\mbowyer\AndroidStudioProjects\ArduinoBluetoothController\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\mbowyer\AndroidStudioProjects\ArduinoBluetoothController\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-25.1.1_af0086e74ae9f0f589c0e4414a8709248badfffa\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\mbowyer\AndroidStudioProjects\ArduinoBluetoothController\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1e165b4c62ba236c0164cda2d96b5b7c979d976a">
+        <dex dex="C:\Users\mbowyer\AndroidStudioProjects\ArduinoBluetoothController\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_49744c5178210cdf39c810ae0e3b35d9a2a7e427\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\mbowyer\AndroidStudioProjects\ArduinoBluetoothController\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e2719c102dca3a7a5b02ce07f769362da6ddb4ab">
+        <dex dex="C:\Users\mbowyer\AndroidStudioProjects\ArduinoBluetoothController\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-25.1.1_2a8d377c7ac17a82784aa92dd516bfd61062387e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\mbowyer\AndroidStudioProjects\ArduinoBluetoothController\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
+        <dex dex="C:\Users\mbowyer\AndroidStudioProjects\ArduinoBluetoothController\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-25.1.1_7de5e7a7e8f6ed5e68e662f6c4c7a4d893448315\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\mbowyer\AndroidStudioProjects\ArduinoBluetoothController\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c03bf57f358aa10d253f21989e93bcf6014b3b17">
+        <dex dex="C:\Users\mbowyer\AndroidStudioProjects\ArduinoBluetoothController\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-25.1.1_42b76020b09d799564fd908f9edfb322b783d2e5\classes.dex" />
+    </item>
+
+</items>

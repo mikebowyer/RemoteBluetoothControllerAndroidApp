@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/darker_gray"
+    android:weightSum="1">
+
+    <TextView
+        android:text="Select a control scheme:"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:id="@+id/textView"
+        android:padding="5dp"
+        android:autoText="false"
+        android:background="@android:color/holo_orange_light"
+        android:clickable="false"
+        android:elevation="19dp"
+        android:elegantTextHeight="false"
+        android:gravity="center_vertical|center_horizontal"
+        android:textColor="@android:color/background_light"
+        android:textSize="24dp"
+        android:textStyle="normal|bold"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:text="JoyStick"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/JoyStickControlButton"
+            android:layout_weight=".33"
+            android:onClick="JoyStickControllerLaunch" />
+
+        <Button
+            android:text="Gyroscope"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/GyroControlButton"
+            android:layout_weight=".33"
+            android:onClick="GyroscopeControllerLaunch"/>
+
+        <Button
+            android:text="Tank Drive"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/TankDriveControlButton"
+            android:layout_weight=".33"
+            android:onClick="TankDriveControllerLaunch"/>
+
+    </LinearLayout>
+</LinearLayout>
