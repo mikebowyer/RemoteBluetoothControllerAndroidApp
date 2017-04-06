@@ -1,0 +1,228 @@
+/*
+* Arduino code for SN754410 H-bridge motor driver control.
+*Control the speed of the motor using a bluetooth app with an on screen joystick
+*Created by: Michael Bowyer 3/28/2017
+*/
+
+////Joystick Pin information
+//int xPin = A1;//initialize  the X-axis of the joystick to an anolog pin
+//int yPin = A0;//initialize  the Y-axis of the joystick to an anolog pin
+//int buttonPin = 2;//initialize  the button of the joystick to an digitalpin
+
+//H-Bridge Pin Information to control Left motor
+int motorL_speedPin = 11; // Speed(PWM) control H-bridge output 
+int motorL_Forward = 12; // H-bridge direction control 
+int motorL_Backward = 13; // H-bridge direction control 
+
+//H-Bridge Pin Information to control Right motor
+int motorR_speedPin = 5; // Speed(PWM) control H-bridge output 
+int motorR_Forward = 6; // H-bridge direction control 
+int motorR_Backward = 7; // H-bridge direction control 
+
+//HORN and Lights Declarations
+int horn_pin=10;
+int right_HL=9;
+int left_HL=8;
+
+//Variables needed to control motor
+float left_motor_speed=0; // value for motor speed
+float right_motor_speed=0; // value for motor speed
+
+//variables to read in joystick or gyro data
+float xPosition = 0;// set initial value of x-axis to 0.
+float yPosition = 0;// set initial value of y-axis to 0.
+int buttonState = 0;// set initial value of button to 0.
+
+//variables to read in slider data
+float left_slider = 0;// set initial value of x-axis to 0.
+float right_slider = 0;// set initial value of y-axis to 0.
+
+//Variables to Read in bluetooth communication data
+char recd_dat; // variable for receiving data from bluetooth serial port
+String recieved_string = "";
+long last_recieved_time=0;
+long wait_for_BT_packet=20;
+long max_no_com_time=500;
+
+//LIGHT CONTROL VARIABLES
+int on_brd_led = 13; // On-board LED pin detail
+
+void setup()
+{
+//Initialize Serial COmmunication  
+    Serial.begin(9600);
+    
+// Onboard LED pin as output and turn it off
+    pinMode(on_brd_led, OUTPUT);    
+    digitalWrite(on_brd_led, LOW);
+    
+//set left motor interface pins as outputs
+   pinMode(motorL_speedPin, OUTPUT);// set Speed(PWM) control H-bridge as output 
+   pinMode(motorL_Forward, OUTPUT);// H-bridge direction control as output
+   pinMode(motorL_Backward, OUTPUT);// H-bridge direction control as output
+
+//set right motor interface pins as outputs
+   pinMode(motorR_speedPin, OUTPUT);// set Speed(PWM) control H-bridge as output 
+   pinMode(motorR_Forward, OUTPUT);// H-bridge direction control as output
+   pinMode(motorR_Backward, OUTPUT);// H-bridge direction control as output
+
+//initializing left motor speed and direction
+  analogWrite(motorL_speedPin, 0);//set initial speed of left to 0
+  digitalWrite(motorL_Forward, HIGH);//have left motor drive forward.
+  digitalWrite(motorL_Backward, LOW);//have left motor drive forward. 
+  
+//initializing right motor speed and direction  
+  analogWrite(motorR_speedPin, 0);//set initial speed of right to 0
+  digitalWrite(motorR_Forward, HIGH);//have right motor drive forward.
+  digitalWrite(motorR_Backward, LOW);//have right motor drive forward. 
+
+//INitializing Head lghts and Horn
+   pinMode(horn_pin, OUTPUT);// set horn pin as output
+   pinMode(right_HL, OUTPUT);// set headlight pint as output
+   pinMode(left_HL, OUTPUT);// set headlight pint as output
+   
+   digitalWrite(horn_pin, HIGH);//turn off the horn to start
+   digitalWrite(right_HL, HIGH);//turn off the headlight to start
+   digitalWrite(left_HL, HIGH);//turn off the headlight to start
+   
+}
+
+
+void loop() 
+{
+/*READ IN BLUE TOOTH STRING*/
+    recieved_string="";
+    long start_time=millis();
+    while(millis()-start_time < wait_for_BT_packet)
+    {
+      while (Serial.available() > 0) {
+        char inChar = Serial.read();
+        recieved_string += inChar;
+      }
+    }
+/*PAESE BLUETOOTH STRING*/ 
+    //xPosition=0;
+    //yPosition=0;
+    if(recieved_string != "")
+    {
+       Serial.println("Message Length in Bytes: " + recieved_string.length());
+       Serial.println("Recieved Message is: "+ recieved_string);
+       Serial.println("Message Elements 0&1 Are: "+ recieved_string.substring(0,2));
+       Serial.println("Message Elements 6&7 Are: "+ recieved_string.substring(7,9));
+       
+       //Gyroscope or Jyostick Data
+       if( (recieved_string.substring(0,2)== "X:") && (recieved_string.substring(7,9)== "Y:") )
+       {
+         String turn_string=recieved_string.substring(3,7);
+         xPosition = turn_string.toFloat();
+         if(recieved_string.substring(2,3)=="-"){xPosition =-xPosition;}
+         
+         String speedr_string=recieved_string.substring(10,14);
+         yPosition = speedr_string.toFloat();
+         if(recieved_string.substring(9,10)=="-"){yPosition =-yPosition;}
+         Serial.println(xPosition);
+         Serial.println(yPosition);
+         
+         left_motor_speed=254*(yPosition+xPosition); // calculate speed to send to left motor
+         right_motor_speed= 254*(yPosition-xPosition);//calculate speed to send to right motor
+         
+         last_recieved_time=millis();
+       }       
+       
+       //Slider Data
+       if( (recieved_string.substring(0,2)== "L:") && (recieved_string.substring(7,9)== "R:") )
+       {
+         String left_string=recieved_string.substring(3,7);
+         left_slider = left_string.toFloat();
+         if(recieved_string.substring(2,3)=="-"){left_slider =-left_slider;}
+         
+         String right_string=recieved_string.substring(10,14);
+         right_slider = right_string.toFloat();
+         if(recieved_string.substring(9,10)=="-"){right_slider =-right_slider;}
+         Serial.println(left_slider);
+         Serial.println(right_slider);
+         
+         left_motor_speed=254*(left_slider); // calculate speed to send to left motor
+         right_motor_speed= 254*(right_slider);//calculate speed to send to right motor
+         
+         last_recieved_time=millis();
+       }
+       
+       if(recieved_string == "HL_ON")
+       {
+           digitalWrite(right_HL, HIGH);//turn off the headlight to start
+           digitalWrite(left_HL, HIGH);//turn off the headlight to start
+       }
+       if(recieved_string == "HL_OFF")
+       {
+           digitalWrite(right_HL, LOW);//turn off the headlight to start
+           digitalWrite(left_HL, LOW);//turn off the headlight to start
+       }
+    }
+    
+    
+/*SEND MOTOR SPEEDS*/    
+    if(millis() - last_recieved_time < max_no_com_time)
+    {
+      
+    }else{
+      left_motor_speed=0; // calculate speed to send to left motor
+      right_motor_speed=0;//calculate speed to send to right moto
+    }
+    
+    sendMotorSpeed(left_motor_speed, right_motor_speed);   
+}
+
+
+
+
+
+
+
+void sendMotorSpeed(float lSpeed, float rSpeed)//change direction of motors depending on input value
+{
+  //saving values to send to speed as integers, instead of floats
+  int leftSpeed= (int)lSpeed;
+  int rightSpeed= (int)rSpeed;
+  
+  //limit the speeds to -254 to 255
+  if(leftSpeed > 255){leftSpeed=255;}
+  if(leftSpeed < -254){leftSpeed=-254;}
+  if(rightSpeed > 255){rightSpeed=255;}
+  if(rightSpeed < -254){rightSpeed=-254;}
+  
+  
+  if( leftSpeed < 0 )//if left motor needs to go backward
+  {
+       digitalWrite(motorL_Forward, LOW);//have left motor drive backward.
+       digitalWrite(motorL_Backward, HIGH);//have left motor drive backward. 
+       analogWrite(motorL_speedPin, abs(leftSpeed));//change speed of left motor
+       Serial.print("   LMS BACKWARD: ");//print left motor speed
+       Serial.print(leftSpeed);
+  }
+  else //if left motor needs to go forward
+  {
+       digitalWrite(motorL_Forward, HIGH);//have left motor drive forward.
+       digitalWrite(motorL_Backward, LOW);//have left motor drive forward. 
+       analogWrite(motorL_speedPin, abs(leftSpeed));//change speed of left motor
+       Serial.print("   LMS FORWARD: ");//print left motor speed
+       Serial.print(leftSpeed);
+  }
+  if( rightSpeed < 0 )//if right motor needs to go backward
+  {
+       digitalWrite(motorR_Forward, LOW);//have right motor drive backward.
+       digitalWrite(motorR_Backward, HIGH);//have right motor drive backward. 
+       analogWrite(motorR_speedPin, abs(rightSpeed));//change speed of right motor
+       Serial.print("   RMS BACKWARD: ");//print left motor speed
+       Serial.println(rightSpeed);
+  }
+  else//if left motor needs to go forward 
+  {
+        digitalWrite(motorR_Forward, HIGH);//have right motor drive forward.
+       digitalWrite(motorR_Backward, LOW);//have right motor drive forward. 
+       analogWrite(motorR_speedPin, abs(rightSpeed));//change speed of right motor
+       Serial.print("   RMS FORWARD: ");//print left motor speed
+       Serial.println(rightSpeed);
+  }
+  return;
+}
